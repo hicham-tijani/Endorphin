@@ -1,4 +1,4 @@
-package com.endorphin
+package com.endorphin.app
 
 import android.app.Application
 import android.content.res.Configuration

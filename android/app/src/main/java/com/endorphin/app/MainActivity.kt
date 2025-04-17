@@ -1,4 +1,4 @@
-package com.endorphin
+package com.endorphin.app
 
 import android.os.Build
 import android.os.Bundle

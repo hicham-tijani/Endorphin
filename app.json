@@ -4,51 +4,67 @@
     "slug": "Endorphin",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "icon": "./assets/images/icon-img.png",
+    "scheme": "Endorphin",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.endorphin.app",
-      "config": {
-        "googleMapsApiKey": "YOUR_IOS_MAPS_API_KEY"
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app needs access to location to track your fitness activities.",
+        "NSLocationAlwaysUsageDescription": "This app needs access to location to track your fitness activities in the background.",
+        "NSMotionUsageDescription": "This app needs access to motion sensors to count your steps."
       }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/icon-img.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.endorphin.app",
       "permissions": [
-        "android.permission.ACCESS_COARSE_LOCATION",
-        "android.permission.ACCESS_FINE_LOCATION",
-        "android.permission.FOREGROUND_SERVICE"
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACTIVITY_RECOGNITION",
+        "ANDROID_HOME"
       ],
-      "config": {
-        "googleMaps": {
-          "apiKey": "YOUR_ANDROID_MAPS_API_KEY"
-        }
-      },
-      "googleServicesFile": "./android/app/google-services.json"
+      "versionCode": 1,
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/icon-img.png"
     },
     "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/icon-img.png",
+          "imageWidth": 300,
+          "resizeMode": "cover",
+          "backgroundColor": "#ffffff"
+        }
+      ],
       [
         "expo-location",
         {
-          "locationAlwaysAndWhenInUsePermission": "Allow Endorphin to use your location."
+          "locationAlwaysAndWhenInUsePermission": "Allow Endorphin to use your location to track your fitness activities."
         }
       ]
-    ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "141fa19a-bcea-47c4-9cb0-5105d929333f"
+      }
+    }
   }
 }
